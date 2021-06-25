@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login & Sign Up Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://image.freepik.com/free-vector/modern-professional-knights-logo-mascot-game-design-template_1258-29033.jpg">
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+</head>
+<body>
+  <div class="cont">
+    <div  class="form sign-in">
+      <h2>Log In</h2>
+
+      <div class="social-media">
+        <ul>
+            <a href="https://www.facebook.com/"> <li><img src="images/facebook.png"></li></a>
+            <a href="https://twitter.com/login"> <li><img src="images/twitter.png"></li></a>
+            <a href="https://google.com"> <li><img src="images/gp.png"></li></a>
+          </ul>
+      </div>
+      
+      <label>
+        <span>Email Address</span>
+        <input type="email" name="email">
+      </label>
+      <label>
+        <span>Password</span>
+        <input type="password" name="password">
+      </label>
+      <button data-tilt class="submit" type="button">Log In</button>
+
+    
+    </div>
+
+    <div class="sub-cont">
+      <div class="img">
+        <div class="img-text m-up">
+          <h2>New here?</h2>
+          <p>Sign Up and discover great amount of new opportunities!</p>
+        </div>
+        <div class="img-text m-in">
+          <h2>One of us?</h2>
+          <p>If you already has an account, just Log In. We've missed you!</p>
+        </div>
+        <div data-tilt class="img-btn">
+          <span class="m-up">Sign Up</span>
+          <span class="m-in">Log In</span>
+        </div>
+      </div>
+      <div class="form sign-up">
+        <h2>Sign Up</h2>
+        <label>
+          <span>Name</span>
+          <input type="text" id="name1" name="name" placeholder="Your name..">
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" id="email1" name="email" placeholder="Your email..">
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password"  id="password1" name="password" placeholder="Your password..">
+        </label>
+        <label>
+          <span>Confirm Password</span>
+          <input type="password">
+        </label>
+        <button data-tilt type="button" onclick="update()"class="submit">Sign Up</button>
+      </div>
+    </div>
+  
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
+
+
+<script>
+  //Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDWbe1_XzAyWB4AAyUN622yAbGduDLjoTo",
+    authDomain: "bubbles-42a76.firebaseapp.com",
+    databaseURL: "https://bubbles-42a76-default-rtdb.firebaseio.com",
+    projectId: "bubbles-42a76",
+    storageBucket: "bubbles-42a76.appspot.com",
+    messagingSenderId: "322834671429",
+    appId: "1:322834671429:web:288c8a0ef8e1a76017802c"
+  };
+  // // Initialize Firebase
+  // firebase.initializeApp(firebaseConfig);
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
+
+
+function update(){
+  var name = document.getElementById("name1");
+        var email = document.getElementById("email1");
+        var password = document.getElementById("password1");
+      console.log(name + email+password)
+       console.log("everything working")
+  var playerIndex = "users/user" ;
+  firebase.database().ref(playerIndex).set({
+      name:name.value,
+      password:password.value,
+      email:email.value
+    });
+}
+
+
+</script>
+
+
+
+
+
+
+<script src="sketch.js"></script>
+
+
+
+
+
+
+
+<script>
+  function myFunction() {
+     console.log("working");
+  }
+  </script>
+  
+
+</body>
+</html>
